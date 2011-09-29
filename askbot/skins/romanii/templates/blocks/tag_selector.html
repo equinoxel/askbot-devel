@@ -1,0 +1,46 @@
+{# todo - maybe disable navigation from ignored tags here when "hide" is on - with js? #}
+{% import "macros.html" as macros %}
+<li class="widget_container border_bottom">
+    <h4 class="first">{% trans %}Interesting tags{% endtrans %}</h4>
+    {{ 
+        macros.tag_list_widget(
+            interesting_tag_names,
+            deletable = True,
+            css_class = 'interesting marked-tags'
+        )
+    }}
+    {# todo - add this via js
+        "remove '%(tag_name)s' from the list of interesting tags"|
+        format(tag_name = tag_name)
+    #}
+    <div class="inputs">
+        <input id="interestingTagInput" autocomplete="off" type="text"/>&nbsp;
+        <input id="interestingTagAdd" type="submit" value="{% trans %}Add{% endtrans %}" class="submit"/>
+    </div>
+    <h4>{% trans %}Ignored tags{% endtrans %}</h4>
+    {{
+        macros.tag_list_widget(
+            ignored_tag_names,
+            deletable = True,
+            css_class = 'ignored marked-tags'
+        )
+    }}
+    {# todo: add this via javascript 
+        "remove '%(tag_name)s' from the list of ignored tags"|
+        format(tag_name = tag_name)
+    #}
+    <div class="inputs">
+        <input id="ignoredTagInput" autocomplete="off" type="text"/>&nbsp;
+        <input id="ignoredTagAdd" type="submit" value="{% trans %}Add{% endtrans%}"class="submit"/>
+    </div>
+    <h4>{% trans %}Display tag filter{% endtrans%}</h4>
+    <div id="displayTagFilterControl">
+        {{
+            macros.radio_select(
+                name = "display_tag_filter_strategy",
+                value = request.user.display_tag_filter_strategy,
+                choices = tag_filter_strategy_choices
+            )
+        }}
+    </div>
+</li>

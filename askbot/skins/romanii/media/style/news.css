@@ -1,0 +1,119 @@
+/*
+Created on 01/07/2011
+
+@author: Laur Ivan for Romanii.net
+*/
+
+section#news-list {
+	padding:0;
+	margin:0;
+}
+
+section#news-list article {
+}
+
+section#news-list article div {
+	width: 500px;
+	float: left;
+	border: 0;
+}
+
+section#news-list article aside {
+	width: 70px;
+	float: right;
+	border: 0;
+}
+
+section#news-list article aside .fav, section#news-list article aside .cal {
+    padding-left: 22px;
+    margin-left: 4px;
+    min-height: 16px;
+    line-height: 16px;
+    color: #777;
+    vertical-align: bottom;
+    background-position: left center;
+}
+
+section#news-list article aside .fav {
+    background: url("../../img/icons/b/p1/207.png") 0 1px no-repeat;
+}
+
+section#news-list article aside .cal {
+    background: url("../../img/icons/b/p1/155.png") no-repeat;
+}
+
+
+section#news-list article div h3 {
+	margin:0;
+	font-size: 14px;
+	font-family: "Droid Sans Serif", Arial, Helvetica, sans-serif;
+	font-style: normal;
+}
+
+section#news-list article div h3 img {
+	vertical-align: text-bottom;
+}
+
+section#news-list article div p {
+}
+
+
+ul.clean-list {
+	list-style: none outside; 
+	margin-left: 10px;
+}
+
+ul.clean-list li {
+	padding-bottom: 3px;
+	line-height: 22px;
+}
+ul.clean-list span {
+	vertical-align: baseline;
+}
+ul.clean-list img {
+	vertical-align: text-bottom;
+	margin-right: 5px;
+}
+
+ul.inline-list, ul.inline-list li {
+	display: inline;
+	list-style: none outside;
+	margin-left: 0px; 
+}
+
+ul.tags li {
+
+}
+ul.tags li span {
+	color: white;
+	padding: 3px 5px;
+    margin-right: 3px;
+    line-height: 25px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
+	text-shadow: 0 1px 0 #12141a;
+	background-color: #3a4052;
+	background-image: -moz-linear-gradient(top, #3a4052, #252a39);
+	background-image: -o-linear-gradient(top, #3a4052, #252a39);
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#3a4052), to(#252a39));
+	background-image: -webkit-linear-gradient(top, #3a4052, #252a39);
+	background-image: linear-gradient(top, #3a4052, #252a39);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#3a4052', EndColorStr='#252a39');
+}
+
+img.border {
+	border: 1px solid #e8e8e8;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	-o-border-radius: 4px;
+	border-radius: 4px;
+	background-color: #f7f7f7;
+	background-image: -moz-linear-gradient(top, #f7f7f7, #e8e8e8); 
+	background-image: -o-linear-gradient(top, #f7f7f7, #e8e8e8); 
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#f7f7f7), to(#e8e8e8)); 
+	background-image: -webkit-linear-gradient(top, #f7f7f7, #e8e8e8); 
+	background-image: linear-gradient(top, #f7f7f7, #e8e8e8);
+	padding: 3px;
+}

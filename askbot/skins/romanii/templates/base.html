@@ -1,0 +1,50 @@
+{% extends "index.html" %}
+
+{% block extra_header%}
+        {% block meta_description %}
+        <meta name="description" content="{{settings.APP_DESCRIPTION|escape}}" />
+        {% endblock %}
+        <meta name="keywords" content="{%block keywords%}{%endblock%},{{settings.APP_KEYWORDS|escape}}" />
+        {% if settings.GOOGLE_SITEMAP_CODE %}
+        <meta name="google-site-verification" content="{{settings.GOOGLE_SITEMAP_CODE}}" />
+        {% endif %}
+
+        {% block forestyle %}{% endblock %}
+        <link rel="stylesheet" type="text/css" href="{{'/style/jquery.autocomplete.css'|media}}" />
+
+        {% if settings.USE_CUSTOM_HTML_HEAD %}
+            {{ settings.CUSTOM_HTML_HEAD }}
+        {% endif %}
+        <script type="text/javascript">
+            var askbot = {};
+            askbot['data'] = {};
+            askbot['urls'] = {};
+            askbot['settings'] = {};
+            askbot['messages'] = {};
+        </script>
+        {% block forejs %}
+        {% endblock %}
+        {# avoid adding javascript here so that pages load faster #}
+
+{% endblock %}
+
+{% block extra_body %}
+        {% include "blocks/bottom_scripts.html" %}
+        {% block endjs %}
+        {% endblock %}
+{% endblock %}
+
+
+{% block tagline_wrapper %}
+{% endblock %}
+
+{% block widgets %}
+    <ul class="sidebar_widgets_container reset">
+        {% block pre_widgets %}
+        {% endblock %}
+        {% block post_widgets %}
+        {% endblock %}
+    </ul>
+{% endblock %}
+
+{%block footer%}{%endblock%}

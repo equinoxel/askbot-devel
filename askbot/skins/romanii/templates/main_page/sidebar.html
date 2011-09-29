@@ -1,0 +1,48 @@
+{% import "macros.html" as macros %}
+
+{{ settings.SIDEBAR_MAIN_HEADER }}
+<ul class="sidebar_widgets_container reset">
+{% if contributors and settings.SIDEBAR_MAIN_SHOW_AVATARS %}
+    {% cache 600 "contributors" contributors search_tags scope sort query context.page context.page_size language_code %}
+    <li class="widget_container border_bottom">
+    <h3>{% trans %}Contributors{% endtrans %}</h3>
+    {% spaceless %}
+        {% for person in contributors %}
+            {{ macros.gravatar(person,22) }}
+        {% endfor %}
+    {% endspaceless %}
+    </li>
+    {% endcache %}
+{% endif %}
+
+{% if request.user.is_authenticated() and settings.SIDEBAR_MAIN_SHOW_TAG_SELECTOR %} 
+   {% include "blocks/tag_selector.html" %}
+{% endif %}
+
+{% if tags and settings.SIDEBAR_MAIN_SHOW_TAGS %}
+    {% cache 0 "tags" tags search_tags scope sort query context.page context.page_size language_code %}
+    <li class="widget_container border_bottom">
+       
+        
+        <h3>{% trans %}Related tags{% endtrans %}</h3>
+        {% if tag_list_type == 'list' %}
+        <ul id="related-tags" class="tags">
+            {% for tag in tags %}
+                <li>
+                    {{ macros.tag_widget(
+                        tag.name,
+                        html_tag = 'div',
+                        extra_content = '<span class="tag-number">&#215; ' ~
+                            tag.local_used_count|intcomma ~ '</span>'
+                    )}}
+                </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+            {{ macros.tag_cloud(tags = tags, font_sizes = font_size) }}
+        {% endif %}
+    </li>
+    {% endcache %}
+{% endif %}
+</ul>
+{{ settings.SIDEBAR_MAIN_FOOTER }}

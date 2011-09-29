@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block body_class %}two-col{% endblock %}
+
+{% block breadcrumbs %}
+{% endblock %}
+
+{% block tagline_wrapper %}
+    <div class="search_container">
+    {% include "blocks/input_bar.html" %}
+    {%block tabs%}{%endblock%}
+    </div>
+    <div class="clear"></div>
+{% endblock %}
+
+{% block body %}
+
+    {% block content%}
+    {% endblock%}
+{% endblock %}
+
+{% block widgets %}
+    {% block sidebar%}
+    {% endblock%}
+{% endblock %}
+
+{%block feed_url%}{{settings.APP_URL}}/feeds/rss/{%endblock%}
+
